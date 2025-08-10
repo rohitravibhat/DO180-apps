@@ -1,54 +1,61 @@
 <html>
+
 <head>
-      <title>Converting Temperatures</title>
-      <title>Designed by BITS ENGINEERS</title>
-      <meta charset="utf-8">
+
+    <meta charset="utf-8">
+
+    <title>Temperature Converter - Program by BITS</title>
+
 </head>
+
 <body>
-      <form name="form1" method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
 
-<table>
-<tr>
-    <td>Enter the temperature to convert:</td>
-    <td><input type="text" name="temp" id="temp" size="10"></td>
-</tr>
+    <h2 style="text-align:center; color:blue;">Program by BITS</h2>
 
-<tr>
-    <td>Convert to:</td>
-    <td><select name="scale" id="scale" size="1">
-               <option disabled>Select the scale</option>
-               <option value="c">Celsius</option>
-               <option value="f">Fahrenheit</option>
-        </select>
-    </td>
-</tr>
+    <form name="form1" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 
-<tr>
-    <td><input type="submit" name="btnConvert" id="btnConvert" value="Convert"></td>
-    <td><input type="reset" name="btnReset" id="btnReset" value="Reset"></td>
-</tr>
+        <table border="0" cellpadding="5" cellspacing="0" align="center">
 
+            <tr>
 
+                <td>Enter the temperature to convert:</td>
 
-</form>
+                <td><input type="text" name="temp" id="temp" size="10" required></td>
 
-<?php
- function convert($value, $type){
-    if($type== "f"){
-       return (((9/5)*$value) +(32));
-   }
-    elseif ($type== "c"){
-       return (($value - 32) * (5/9));
-   }
-}
+            </tr>
 
-if (isset($_POST['btnConvert'])) {
-$temp = $_POST['temp'];
-$scale = $_POST['scale'];
-$converted = convert($temp, $scale);
-echo "The original temperature, $temp, converted is $converted.";
-}
-?>
+            <tr>
 
-    </body>
+                <td>Convert to:</td>
+
+                <td>
+
+                    <select name="scale" id="scale" required>
+
+                        <option value="" disabled selected>Select the scale</option>
+
+                        <option value="c">Celsius</option>
+
+                        <option value="f">Fahrenheit</option>
+
+                    </select>
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td><input type="submit" name="btnConvert" id="btnConvert" value="Convert"></td>
+
+                <td><input type="reset" name="btnReset" id="btnReset" value="Reset"></td>
+
+            </tr>
+
+        </table>
+
+    </form>
+
+</body>
+
 </html>
